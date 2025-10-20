@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vigor Athletic Club - Раскрой свой потенциал</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #1a3a5f;
+            --secondary-color: #d4af37;
+            --accent-color: #c1272d;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5282 100%);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 28px;
+            color: white !important;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .navbar-brand span {
+            color: var(--secondary-color);
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            margin: 0 8px;
+            padding: 8px 16px !important;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            background-color: rgba(255,255,255,0.15);
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .contact-phone {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 16px;
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-phone:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .btn-enroll {
+            background: linear-gradient(45deg, var(--secondary-color), #e6c34e);
+            border: none;
+            color: #1a3a5f;
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-enroll:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            color: #1a3a5f;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .conditions-section {
+            background-color: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .condition-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 40px 30px;
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .condition-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .history-section {
+            padding: 80px 0;
+        }
+        
+        .history-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .contact-info {
+            font-size: 1.2rem;
+        }
+        
+        .contact-info i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+        
+        .schedule-btn {
+            background-color: var(--accent-color);
+            border: none;
+            padding: 10px 25px;
+            font-weight: bold;
+        }
+        
+        .schedule-btn:hover {
+            background-color: #a02025;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .navbar-toggler {
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                VIG<span>OR</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tren.html">Наши тренеры</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="secii.html">Секции</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ras.html">Расписание</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <div class="contact-phone text-light">
+                        <i class="bi bi-telephone me-2"></i> +7 777 777 77 77
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой-секция -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-4">Vigor Athletic Club</h1>
+            <p class="lead fs-3">Раскрой свой потенциал вместе с нами</p>
+            <a href="#conditions" class="btn btn-warning btn-lg mt-4">Узнать больше</a>
+        </div>
+    </section>
+
+    <!-- Условия занятий -->
+    <section id="conditions" class="conditions-section">
+        <div class="container">
+            <h2 class="section-title text-center">Условия занятий</h2>
+            <p class="text-center mb-5">Наши спортсмены регулярно занимают призовые места, а предстоящие соревнования подтверждают высокий уровень подготовки, включая соревнования Челябинска, России и международные турниры.</p>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="condition-card text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h3>250+ спортсменов</h3>
+                        <p>Активное сообщество спортсменов разного уровня подготовки</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="condition-card text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-person"></i>
+                        </div>
+                        <h3>Возраст 3+</h3>
+                        <p>Программы для детей от 3 лет и взрослых любого возраста</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="condition-card text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-arrow-repeat"></i>
+                        </div>
+                        <h3>Постоянное развитие</h3>
+                        <p>Программы обновляются каждый год для максимальной эффективности</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- История клуба -->
+    <section class="history-section">
+        <div class="container">
+            <h2 class="section-title">История клуба</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="history-content">
+                        <p>Vigor Athletic Club — это больше чем просто спортзал. Это сообщество единомышленников, где каждый раскрывает потенциал своего тела, совершенствуется независимо от вашего возраста, пола или целей.</p>
+                        <p>У нас есть все необходимое для вашего прогресса: современное оборудование, профессиональные тренеры и поддерживающая атмосфера.</p>
+                        <p>Мы гордимся нашими достижениями и успехами наших спортсменов на региональных, российских и международных соревнованиях.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://cdn.kibrispdr.org/data/180/foto-kebugaran-jasmani-1.jpg" alt="Тренировка в Vigor Athletic Club" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Vigor Athletic Club</h4>
+                    <p>Раскрой свой потенциал вместе с нами</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <div class="contact-info">
+                        <p><i class="bi bi-telephone"></i> +7 777 777 77 77</p>
+                        <p><i class="bi bi-envelope"></i> info@vigorclub.ru</p>
+                        <p><i class="bi bi-geo-alt"></i> г. Владимир, ул. Спортивная, 15</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Часы работы</h5>
+                    <p>Пн-Пт: 7:00 - 23:00</p>
+                    <p>Сб-Вс: 8:00 - 22:00</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2025 Vigor Athletic Club. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

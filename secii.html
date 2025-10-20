@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Секции - Vigor Athletic Club</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #1a3a5f;
+            --secondary-color: #d4af37;
+            --accent-color: #c1272d;
+        }
+        
+        /* Селекторы по тегам */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5282 100%);
+        }
+        
+        /* Селекторы по классам */
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 28px;
+            color: white !important;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .navbar-brand span {
+            color: var(--secondary-color);
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            margin: 0 8px;
+            padding: 8px 16px !important;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Псевдоклассы */
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            background-color: rgba(255,255,255,0.15);
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .contact-phone {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 16px;
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-phone:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .btn-enroll {
+            background: linear-gradient(45deg, var(--secondary-color), #e6c34e);
+            border: none;
+            color: #1a3a5f;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-enroll:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            color: #1a3a5f;
+        }
+        
+        .sections-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        /* Псевдоэлементы */
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .section-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .section-image {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .section-content {
+            padding: 30px;
+        }
+        
+        .sport-badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        /* Стили для форм */
+        .form-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 0;
+        }
+        
+        .form-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            border: none;
+        }
+        
+        /* Селекторы по атрибутам */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .btn-submit {
+            background: linear-gradient(45deg, var(--primary-color), #2c5282);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 15px 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(26, 58, 95, 0.3);
+        }
+        
+        .modal-content {
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5282 100%);
+            color: white;
+            border-radius: 20px 20px 0 0;
+            border: none;
+            padding: 25px;
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        
+        .contact-info {
+            font-size: 1.1rem;
+        }
+        
+        .contact-info i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+        
+        .navbar-toggler {
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Дочерние селекторы */
+        .section-content > h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Соседние селекторы */
+        .sport-badge + h4 {
+            margin-top: 10px;
+        }
+
+        /* Селекторы по ID */
+        #sectionConsultationForm {
+            margin-top: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    VIG<span>OR</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="tren.html">Наши тренеры</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="secii.html">Секции</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ras.html">Расписание</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="contact-phone text-light">
+                            <i class="bi bi-telephone me-2"></i> +7 777 777 77 77
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Основное содержимое -->
+    <main>
+        <!-- Секция с карточками секций -->
+        <section class="sections-section">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h1 class="section-title">Наши секции</h1>
+                    <p class="lead">Выберите направление, которое вам подходит</p>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="section-card">
+                            <img src="https://avatars.mds.yandex.net/i?id=f4e855e0ea53edbda1662d735a9e2f9f_l-9185791-images-thumbs&n=13" 
+                                 alt="Тяжелая атлетика" class="section-image">
+                            <div class="section-content">
+                                <span class="sport-badge">Тяжелая атлетика</span>
+                                <h4>Силовые тренировки</h4>
+                                <p class="mb-4">Профессиональные тренировки по тяжелой атлетике для всех уровней подготовки. Развитие силы, выносливости и техники.</p>
+                                <ul class="feature-list mb-4">
+                                    <li>Индивидуальный подход</li>
+                                    <li>Профессиональное оборудование</li>
+                                    <li>Техника безопасности</li>
+                                </ul>
+                                <button class="btn btn-enroll w-100" data-bs-toggle="modal" data-bs-target="#enrollModal" data-section="Тяжелая атлетика">
+                                    Записаться
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="section-card">
+                            <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                                 alt="Бокс" class="section-image">
+                            <div class="section-content">
+                                <span class="sport-badge">Бокс</span>
+                                <h4>Искусство бокса</h4>
+                                <p class="mb-4">Обучение технике бокса, тактике ведения боя и самообороне. Индивидуальный подход к каждому ученику.</p>
+                                <ul class="feature-list mb-4">
+                                    <li>Техника ударов и защиты</li>
+                                    <li>Тактическая подготовка</li>
+                                    <li>Работа в парах и спарринги</li>
+                                </ul>
+                                <button class="btn btn-enroll w-100" data-bs-toggle="modal" data-bs-target="#enrollModal" data-section="Бокс">
+                                    Записаться
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-lg-4 col-md-6">
+                        <div class="section-card">
+                            <img src="https://storage.yandexcloud.net/s3-metaratings-storage/images/76/3d/763d1f96146d362374515b4ec133bde6.jpg" 
+                                 alt="Кикбоксинг" class="section-image">
+                            <div class="section-content">
+                                <span class="sport-badge">Кикбоксинг</span>
+                                <h4>Современный кикбоксинг</h4>
+                                <p class="mb-4">Динамичные тренировки, сочетающие удары руками и ногами. Развитие скорости, реакции и координации.</p>
+                                <ul class="feature-list mb-4">
+                                    <li>Комбинации ударов</li>
+                                    <li>Работа ногами</li>
+                                    <li>Кардио-нагрузка</li>
+                                </ul>
+                                <button class="btn btn-enroll w-100" data-bs-toggle="modal" data-bs-target="#enrollModal" data-section="Кикбоксинг">
+                                    Записаться
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма консультации по выбору секции -->
+        <section class="form-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="form-card">
+                            <h2 class="section-title text-center mb-4">Нужна помощь в выборе секции?</h2>
+                            <p class="text-center mb-4">Заполните форму, и наш специалист поможет подобрать оптимальное направление для вас</p>
+                            <form id="sectionConsultationForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="consultName" class="form-label">Ваше имя *</label>
+                                        <input type="text" class="form-control" id="consultName" name="consultName" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="consultPhone" class="form-label">Телефон *</label>
+                                        <input type="tel" class="form-control" id="consultPhone" name="consultPhone" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="ageGroup" class="form-label">Возрастная группа</label>
+                                    <select class="form-select" id="ageGroup" name="ageGroup">
+                                        <option value="">Выберите возраст</option>
+                                        <option value="child">Дети (3-12 лет)</option>
+                                        <option value="teen">Подростки (13-17 лет)</option>
+                                        <option value="adult">Взрослые (18-45 лет)</option>
+                                        <option value="senior">Старше 45 лет</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="goals" class="form-label">Ваши цели</label>
+                                    <select class="form-select" id="goals" name="goals">
+                                        <option value="">Выберите цель</option>
+                                        <option value="fitness">Общее оздоровление</option>
+                                        <option value="weight_loss">Снижение веса</option>
+                                        <option value="strength">Развитие силы</option>
+                                        <option value="self_defense">Самооборона</option>
+                                        <option value="competition">Спортивные достижения</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="experience" class="form-label">Опыт занятий спортом</label>
+                                    <select class="form-select" id="experience" name="experience">
+                                        <option value="none">Нет опыта</option>
+                                        <option value="beginner">Начинающий</option>
+                                        <option value="intermediate">Средний уровень</option>
+                                        <option value="advanced">Опытный</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="consultMessage" class="form-label">Дополнительные пожелания</label>
+                                    <textarea class="form-control" id="consultMessage" name="consultMessage" rows="3" placeholder="Расскажите о ваших предпочтениях..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-submit">Получить консультацию</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальное окно записи -->
+    <div class="modal fade" id="enrollModal" tabindex="-1" aria-labelledby="enrollModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="enrollModalLabel">
+                        <i class="bi bi-pencil-square me-2"></i>Запись на тренировку
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="enrollForm">
+                        <div class="mb-3">
+                            <label for="sectionName" class="form-label">Секция</label>
+                            <input type="text" class="form-control" id="sectionName" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="userName" class="form-label">ФИО</label>
+                            <input type="text" class="form-control" id="userName" placeholder="Введите ваше полное имя" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="userPhone" class="form-label">Телефон</label>
+                            <input type="tel" class="form-control" id="userPhone" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="userEmail" class="form-label">Email (опционально)</label>
+                            <input type="email" class="form-control" id="userEmail" placeholder="your@email.com">
+                        </div>
+                        <button type="submit" class="btn btn-submit mt-4">
+                            <i class="bi bi-send me-2"></i>Отправить заявку
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Vigor Athletic Club</h4>
+                    <p>Раскрой свой потенциал вместе с нами</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <div class="contact-info">
+                        <p><i class="bi bi-telephone"></i> +7 777 777 77 77</p>
+                        <p><i class="bi bi-envelope"></i> zanyat@mul.ru</p>
+                        <p><i class="bi bi-geo-alt"></i>  г. Владимир, ул. Спортивная, 15</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Часы работы</h5>
+                    <p>Пн-Пт: 7:00 - 23:00</p>
+                    <p>Сб-Вс: 8:00 - 22:00</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2025 Vigor Athletic Club. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const enrollButtons = document.querySelectorAll('.btn-enroll');
+            const sectionInput = document.getElementById('sectionName');
+            
+            enrollButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const section = this.getAttribute('data-section');
+                    if (section) {
+                        sectionInput.value = section;
+                    }
+                });
+            });
+            
+            // Обработка формы записи
+            const enrollForm = document.getElementById('enrollForm');
+            enrollForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    section: sectionInput.value,
+                    name: document.getElementById('userName').value,
+                    phone: document.getElementById('userPhone').value,
+                    email: document.getElementById('userEmail').value
+                };
+                
+                console.log('Данные формы записи:', formData);
+                alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+                const modal = bootstrap.Modal.getInstance(document.getElementById('enrollModal'));
+                modal.hide();
+                enrollForm.reset();
+            });
+
+            // Обработка формы консультации
+            const consultForm = document.getElementById('sectionConsultationForm');
+            consultForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    name: document.getElementById('consultName').value,
+                    phone: document.getElementById('consultPhone').value,
+                    ageGroup: document.getElementById('ageGroup').value,
+                    goals: document.getElementById('goals').value,
+                    experience: document.getElementById('experience').value,
+                    message: document.getElementById('consultMessage').value
+                };
+                
+                console.log('Данные формы консультации:', formData);
+                alert('Благодарим за обращение! Наш специалист свяжется с вами для консультации по подбору секции.');
+                consultForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>

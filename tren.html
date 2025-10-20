@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наши тренеры - Vigor Athletic Club</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #1a3a5f;
+            --secondary-color: #d4af37;
+            --accent-color: #c1272d;
+        }
+        
+        /* Селекторы по тегам */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5282 100%);
+        }
+        
+        /* Селекторы по классам */
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 28px;
+            color: white !important;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .navbar-brand span {
+            color: var(--secondary-color);
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            margin: 0 8px;
+            padding: 8px 16px !important;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Псевдоклассы */
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            background-color: rgba(255,255,255,0.15);
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .contact-phone {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 16px;
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-phone:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .btn-enroll {
+            background: linear-gradient(45deg, var(--secondary-color), #e6c34e);
+            border: none;
+            color: #1a3a5f;
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-enroll:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            color: #1a3a5f;
+        }
+        
+        .trainers-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        /* Псевдоэлементы */
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .trainer-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 40px 30px;
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .trainer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .trainer-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 25px;
+            border: 5px solid var(--secondary-color);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .sport-badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 10px 0;
+        }
+        
+        /* Стили для форм */
+        .form-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 0;
+        }
+        
+        .form-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            border: none;
+        }
+        
+        /* Селекторы по атрибутам */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .btn-submit {
+            background: linear-gradient(45deg, var(--primary-color), #2c5282);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 15px 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(26, 58, 95, 0.3);
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            margin: 0 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        
+        .contact-info {
+            font-size: 1.1rem;
+        }
+        
+        .contact-info i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+        
+        .navbar-toggler {
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Дочерние селекторы */
+        .trainer-card > h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Соседние селекторы */
+        .sport-badge + p {
+            margin-top: 20px;
+        }
+
+        /* Селекторы по ID */
+        #trainerConsultationForm {
+            margin-top: 20px;
+        }
+
+        .achievement-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .achievement-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .achievement-list li:before {
+            content: "🏆";
+            margin-right: 10px;
+        }
+
+        .consult-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .consult-btn:hover {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    VIG<span>OR</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="tren.html">Наши тренеры</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="secii.html">Секции</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ras.html">Расписание</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="contact-phone text-light">
+                            <i class="bi bi-telephone me-2"></i> +7 777 777 77 77
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Основное содержимое -->
+    <main>
+        <!-- Секция с тренерами -->
+        <section class="trainers-section">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h1 class="section-title">Наши тренеры</h1>
+                    <p class="lead">Профессиональные специалисты с многолетним опытом</p>
+                </div>
+                
+                <div class="row g-5">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="trainer-card">
+                            <img src="https://www.uscareerinstitute.edu/images/fitness-trainer-outcomes.jpg" alt="Тренер по тяжелой атлетике" class="trainer-photo">
+                            <h3>Алексей Петров</h3>
+                            <span class="sport-badge">Тяжелая атлетика</span>
+                            <p class="mt-4">Мастер спорта по тяжелой атлетике. Опыт работы - 8 лет. Специализируется на технике выполнения упражнений и подготовке к соревнованиям.</p>
+                            
+                            <ul class="achievement-list">
+                                <li>Мастер спорта России</li>
+                                <li>Чемпион области 2020-2023</li>
+                                <li>Сертифицированный тренер</li>
+                            </ul>
+                            
+                            <button class="btn consult-btn w-100" data-bs-toggle="modal" data-bs-target="#consultModal" data-trainer="Алексей Петров" data-sport="Тяжелая атлетика">
+                                <i class="bi bi-chat-dots me-2"></i>Консультация
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="trainer-card">
+                            <img src="https://jwfitnesssystems.com/wp-content/uploads/2023/02/CW1_7335-1612x1075.jpg" alt="Тренер по боксу" class="trainer-photo">
+                            <h3>Дмитрий Иванов</h3>
+                            <span class="sport-badge">Бокс</span>
+                            <p class="mt-4">Кандидат в мастера спорта по боксу. Опыт тренерской работы - 5 лет. Проводит индивидуальные и групповые тренировки для всех уровней подготовки.</p>
+                            
+                            <ul class="achievement-list">
+                                <li>КМС по боксу</li>
+                                <li>Призер чемпионата России</li>
+                                <li>Специалист по самообороне</li>
+                            </ul>
+                            
+                            <button class="btn consult-btn w-100" data-bs-toggle="modal" data-bs-target="#consultModal" data-trainer="Дмитрий Иванов" data-sport="Бокс">
+                                <i class="bi bi-chat-dots me-2"></i>Консультация
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="trainer-card">
+                            <img src="https://tampastrength.com/wp-content/uploads/2020/01/South-Tampa-Personal-Training-Access-to-Fitness-Experts.jpg" alt="Тренер по кикбоксингу" class="trainer-photo">
+                            <h3>Сергей Козлов</h3>
+                            <span class="sport-badge">Кикбоксинг</span>
+                            <p class="mt-4">Мастер спорта по кикбоксингу. Чемпион региона. Опыт работы - 6 лет. Специализируется на самообороне и подготовке к соревнованиям.</p>
+                            
+                            <ul class="achievement-list">
+                                <li>Мастер спорта по кикбоксингу</li>
+                                <li>Чемпион региона 2022</li>
+                                <li>Инструктор самообороны</li>
+                            </ul>
+                            
+                            <button class="btn consult-btn w-100" data-bs-toggle="modal" data-bs-target="#consultModal" data-trainer="Сергей Козлов" data-sport="Кикбоксинг">
+                                <i class="bi bi-chat-dots me-2"></i>Консультация
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма обратной связи о тренерах -->
+        <section class="form-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="form-card">
+                            <h2 class="section-title text-center mb-4">Обратная связь о тренерах</h2>
+                            <p class="text-center mb-4">Поделитесь вашим мнением о работе наших тренеров или задайте вопрос</p>
+                            <form id="trainerFeedbackForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="feedbackName" class="form-label">Ваше имя *</label>
+                                        <input type="text" class="form-control" id="feedbackName" name="feedbackName" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="feedbackPhone" class="form-label">Телефон *</label>
+                                        <input type="tel" class="form-control" id="feedbackPhone" name="feedbackPhone" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="trainerSelect" class="form-label">Выберите тренера</label>
+                                    <select class="form-select" id="trainerSelect" name="trainerSelect">
+                                        <option value="">Все тренеры</option>
+                                        <option value="alexey">Алексей Петров (Тяжелая атлетика)</option>
+                                        <option value="dmitry">Дмитрий Иванов (Бокс)</option>
+                                        <option value="sergey">Сергей Козлов (Кикбоксинг)</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="feedbackType" class="form-label">Тип обращения</label>
+                                    <select class="form-select" id="feedbackType" name="feedbackType">
+                                        <option value="question">Вопрос тренеру</option>
+                                        <option value="feedback">Отзыв о тренировках</option>
+                                        <option value="suggestion">Предложение</option>
+                                        <option value="other">Другое</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="feedbackMessage" class="form-label">Ваше сообщение *</label>
+                                    <textarea class="form-control" id="feedbackMessage" name="feedbackMessage" rows="4" required placeholder="Опишите ваш вопрос или оставьте отзыв..."></textarea>
+                                </div>
+                                <div class="form-check mb-4">
+                                    <input class="form-check-input" type="checkbox" id="agreePolicy" name="agreePolicy" required>
+                                    <label class="form-check-label" for="agreePolicy">
+                                        Я согласен на обработку персональных данных
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-submit">Отправить сообщение</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальное окно консультации -->
+    <div class="modal fade" id="consultModal" tabindex="-1" aria-labelledby="consultModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="consultModalLabel">
+                        <i class="bi bi-person-check me-2"></i>Консультация с тренером
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="consultForm">
+                        <div class="mb-3">
+                            <label for="consultTrainer" class="form-label">Тренер</label>
+                            <input type="text" class="form-control" id="consultTrainer" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="consultSport" class="form-label">Направление</label>
+                            <input type="text" class="form-control" id="consultSport" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="clientName" class="form-label">Ваше имя *</label>
+                            <input type="text" class="form-control" id="clientName" placeholder="Введите ваше имя" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="clientPhone" class="form-label">Телефон *</label>
+                            <input type="tel" class="form-control" id="clientPhone" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="consultGoal" class="form-label">Цель консультации</label>
+                            <select class="form-select" id="consultGoal" name="consultGoal">
+                                <option value="general">Общая информация</option>
+                                <option value="individual">Индивидуальная программа</option>
+                                <option value="technique">Техника упражнений</option>
+                                <option value="competition">Подготовка к соревнованиям</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-submit mt-4">
+                            <i class="bi bi-calendar-check me-2"></i>Записаться на консультацию
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Vigor Athletic Club</h4>
+                    <p>Раскрой свой потенциал вместе с нами</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <div class="contact-info">
+                        <p><i class="bi bi-telephone"></i> +7 777 777 77 77</p>
+                        <p><i class="bi bi-envelope"></i> info@vigorclub.ru</p>
+                        <p><i class="bi bi-geo-alt"></i> г. Владимир, ул. Спортивная, 15</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Часы работы</h5>
+                    <p>Пн-Пт: 7:00 - 23:00</p>
+                    <p>Сб-Вс: 8:00 - 22:00</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2025 Vigor Athletic Club. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const consultButtons = document.querySelectorAll('.consult-btn');
+            const consultTrainerInput = document.getElementById('consultTrainer');
+            const consultSportInput = document.getElementById('consultSport');
+            
+            // Обработка кнопок консультации
+            consultButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const trainer = this.getAttribute('data-trainer');
+                    const sport = this.getAttribute('data-sport');
+                    
+                    if (trainer && sport) {
+                        consultTrainerInput.value = trainer;
+                        consultSportInput.value = sport;
+                    }
+                });
+            });
+            
+            // Обработка формы консультации
+            const consultForm = document.getElementById('consultForm');
+            consultForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    trainer: consultTrainerInput.value,
+                    sport: consultSportInput.value,
+                    name: document.getElementById('clientName').value,
+                    phone: document.getElementById('clientPhone').value,
+                    goal: document.getElementById('consultGoal').value
+                };
+                
+                console.log('Данные формы консультации:', formData);
+                alert('Спасибо! Ваша заявка на консультацию отправлена. Тренер свяжется с вами в ближайшее время.');
+                const modal = bootstrap.Modal.getInstance(document.getElementById('consultModal'));
+                modal.hide();
+                consultForm.reset();
+            });
+
+            // Обработка формы обратной связи
+            const feedbackForm = document.getElementById('trainerFeedbackForm');
+            feedbackForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    name: document.getElementById('feedbackName').value,
+                    phone: document.getElementById('feedbackPhone').value,
+                    trainer: document.getElementById('trainerSelect').value,
+                    type: document.getElementById('feedbackType').value,
+                    message: document.getElementById('feedbackMessage').value
+                };
+                
+                console.log('Данные формы обратной связи:', formData);
+                alert('Благодарим за ваш отзыв! Ваше сообщение отправлено тренеру.');
+                feedbackForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
