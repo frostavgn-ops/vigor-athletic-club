@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Расписание - Vigor Athletic Club</title>
+    
+    <!-- ========== CSS ФРЕЙМВОРКИ ========== -->
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animate.css для анимаций -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- ========== КОНЕЦ CSS ФРЕЙМВОРКОВ ========== -->
+    
     <style>
         :root {
             --primary-color: #1a3a5f;
@@ -13,7 +30,6 @@
             --accent-color: #c1272d;
         }
         
-        /* Селекторы по тегам */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #333;
@@ -24,7 +40,6 @@
             background: linear-gradient(135deg, var(--primary-color) 0%, #2c5282 100%);
         }
         
-        /* Селекторы по классам */
         .navbar-brand {
             font-weight: 800;
             font-size: 28px;
@@ -46,7 +61,6 @@
             transition: all 0.3s ease;
         }
         
-        /* Псевдоклассы */
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
             background-color: rgba(255,255,255,0.15);
@@ -79,7 +93,6 @@
             display: inline-block;
         }
         
-        /* Псевдоэлементы */
         .section-title:after {
             content: '';
             position: absolute;
@@ -139,7 +152,6 @@
             margin-bottom: 5px;
         }
         
-        /* Стили для форм */
         .form-section {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 80px 0;
@@ -153,7 +165,6 @@
             border: none;
         }
         
-        /* Селекторы по атрибутам */
         input[type="text"],
         input[type="email"],
         select,
@@ -221,12 +232,10 @@
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
 
-        /* Дочерние селекторы */
         .sport-content > .time-slot {
             margin-bottom: 20px;
         }
 
-        /* Соседние селекторы */
         .time + .trainer-info {
             margin-top: 5px;
         }
@@ -239,6 +248,62 @@
             font-size: 0.8rem;
             font-weight: 600;
             margin-left: 10px;
+        }
+        
+        /* ========== СТИЛИ ДЛЯ ФРЕЙМВОРКОВ ========== */
+        /* Анимации с Animate.css */
+        .animated-card {
+            animation-duration: 1s;
+        }
+        
+        /* Стили для Font Awesome иконок */
+        .fa-icon-feature {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        /* Стили для AOS */
+        [data-aos] {
+            transition-duration: 0.8s;
+        }
+        
+        /* Material Icons */
+        .material-icons.custom-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        
+        /* Дополнительные стили для демонстрации фреймворков */
+        .sports-tech-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5282 100%);
+            color: white;
+            padding: 60px 0;
+            margin: 40px 0;
+            border-radius: 20px;
+        }
+        
+        .tech-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
         }
     </style>
 </head>
@@ -269,8 +334,9 @@
                         </li>
                     </ul>
                     <div class="d-flex align-items-center gap-3">
+                        <!-- ========== FONT AWESOME ИКОНКА ========== -->
                         <div class="contact-phone text-light">
-                            <i class="bi bi-telephone me-2"></i> +7 777 777 77 77
+                            <i class="fas fa-phone-alt me-2"></i> +7 777 777 77 77
                         </div>
                     </div>
                 </div>
@@ -280,19 +346,64 @@
 
     <!-- Основное содержимое -->
     <main>
+        <!-- Обновленная секция с спортивной тематикой -->
+        <section class="sports-tech-section">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="animate__animated animate__fadeInDown">Современные технологии в спорте</h2>
+                    <p class="lead mb-4">Мы используем передовые решения для вашего комфорта и прогресса</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="tech-card">
+                            <!-- ========== FONT AWESOME ========== -->
+                            <i class="fas fa-dumbbell tech-icon"></i>
+                            <h5>Адаптивные тренировки</h5>
+                            <p>Индивидуальный подход к каждому спортсмену</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="tech-card">
+                            <!-- ========== FONT AWESOME ========== -->
+                            <i class="fas fa-heartbeat tech-icon"></i>
+                            <h5>Мониторинг прогресса</h5>
+                            <p>Отслеживание ваших спортивных достижений</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="tech-card">
+                            <!-- ========== MATERIAL ICONS ========== -->
+                            <span class="material-icons tech-icon">schedule</span>
+                            <h5>Умное расписание</h5>
+                            <p>Оптимальное распределение тренировочного времени</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="tech-card">
+                            <!-- ========== FONT AWESOME ========== -->
+                            <i class="fas fa-chart-line tech-icon"></i>
+                            <h5>Аналитика результатов</h5>
+                            <p>Детальный разбор ваших спортивных показателей</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Секция расписания -->
         <section class="schedule-section">
             <div class="container">
                 <div class="text-center mb-5">
-                    <h1 class="section-title">Расписание занятий</h1>
+                    <h1 class="section-title animate__animated animate__fadeIn">Расписание занятий</h1>
                     <p class="lead">Выберите удобное время для тренировки</p>
                 </div>
                 
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6">
-                        <div class="sport-card">
+                        <!-- ========== AOS АНИМАЦИЯ ========== -->
+                        <div class="sport-card animate__animated animate__fadeInLeft" data-aos="fade-up" data-aos-delay="100">
                             <div class="sport-header">
-                                <h4>Кикбоксинг</h4>
+                                <h4><i class="fas fa-fist-raised me-2"></i>Кикбоксинг</h4>
                             </div>
                             <div class="sport-content">
                                 <div class="time-slot">
@@ -323,9 +434,10 @@
                     </div>
 
                     <div class="col-lg-4 col-md-6">
-                        <div class="sport-card">
+                        <!-- ========== AOS АНИМАЦИЯ ========== -->
+                        <div class="sport-card animate__animated animate__fadeInUp" data-aos="fade-up" data-aos-delay="200">
                             <div class="sport-header">
-                                <h4>Тяжёлая атлетика</h4>
+                                <h4><i class="fas fa-dumbbell me-2"></i>Тяжёлая атлетика</h4>
                             </div>
                             <div class="sport-content">
                                 <div class="time-slot">
@@ -350,9 +462,10 @@
                     </div>
 
                     <div class="col-lg-4 col-md-6">
-                        <div class="sport-card">
+                        <!-- ========== AOS АНИМАЦИЯ ========== -->
+                        <div class="sport-card animate__animated animate__fadeInRight" data-aos="fade-up" data-aos-delay="300">
                             <div class="sport-header">
-                                <h4>Бокс</h4>
+                                <h4><i class="fas fa-boxing-glove me-2"></i>Бокс</h4>
                             </div>
                             <div class="sport-content">
                                 <div class="time-slot">
@@ -390,15 +503,23 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
-                        <div class="form-card">
-                            <h2 class="section-title text-center mb-4">Обратная связь по расписанию</h2>
+                        <!-- ========== AOS АНИМАЦИЯ ========== -->
+                        <div class="form-card" data-aos="zoom-in">
+                            <h2 class="section-title text-center mb-4">
+                                <i class="material-icons custom-icon">feedback</i>
+                                Обратная связь по расписанию
+                            </h2>
                             <form id="scheduleFeedbackForm">
                                 <div class="mb-3">
-                                    <label for="feedbackEmail" class="form-label">Ваш email *</label>
+                                    <label for="feedbackEmail" class="form-label">
+                                        <i class="fas fa-envelope me-2"></i>Ваш email *
+                                    </label>
                                     <input type="email" class="form-control" id="feedbackEmail" name="feedbackEmail" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="scheduleTopic" class="form-label">Тема обращения</label>
+                                    <label for="scheduleTopic" class="form-label">
+                                        <i class="fas fa-tag me-2"></i>Тема обращения
+                                    </label>
                                     <select class="form-select" id="scheduleTopic" name="scheduleTopic">
                                         <option value="time_suggestion">Предложение по времени</option>
                                         <option value="new_section">Предложение новой секции</option>
@@ -407,10 +528,14 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="scheduleMessage" class="form-label">Ваше сообщение *</label>
+                                    <label for="scheduleMessage" class="form-label">
+                                        <i class="fas fa-comment me-2"></i>Ваше сообщение *
+                                    </label>
                                     <textarea class="form-control" id="scheduleMessage" name="scheduleMessage" rows="4" required placeholder="Опишите ваши предложения или замечания по расписанию..."></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-submit">Отправить отзыв</button>
+                                <button type="submit" class="btn btn-submit">
+                                    <i class="fas fa-paper-plane me-2"></i>Отправить отзыв
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -430,15 +555,17 @@
                 <div class="col-md-4">
                     <h5>Контакты</h5>
                     <div class="contact-info">
-                        <p><i class="bi bi-envelope"></i> sporobmail.ru</p>
-                        <p><i class="bi bi-geo-alt"></i> г. Владимир, ул. Спортивная, 15</p>
-                        <p><i class="bi bi-tag"></i> Тематика</p>
+                        <!-- ========== FONT AWESOME ИКОНКИ ========== -->
+                        <p><i class="fas fa-envelope"></i> sporobmail.ru</p>
+                        <p><i class="fas fa-map-marker-alt"></i> г. Владимир, ул. Спортивная, 15</p>
+                        <p><i class="fas fa-hashtag"></i> Тематика</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <h5>Часы работы</h5>
-                    <p>Пн-Пт: 7:00 - 23:00</p>
-                    <p>Сб-Вс: 8:00 - 22:00</p>
+                    <!-- ========== MATERIAL ICONS ========== -->
+                    <p><span class="material-icons" style="font-size: 1rem; vertical-align: middle;">access_time</span> Пн-Пт: 7:00 - 23:00</p>
+                    <p><span class="material-icons" style="font-size: 1rem; vertical-align: middle;">weekend</span> Сб-Вс: 8:00 - 22:00</p>
                 </div>
             </div>
             <hr class="my-4">
@@ -448,14 +575,42 @@
         </div>
     </footer>
 
+    <!-- ========== JAVASCRIPT БИБЛИОТЕКИ ДЛЯ ФРЕЙМВОРКОВ ========== -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <script>
+        // Инициализация AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
         // Обработка формы обратной связи по расписанию
         document.getElementById('scheduleFeedbackForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Убрана анимация кнопки - простой alert
             alert('Благодарим за ваш отзыв! Мы учтем ваши предложения при формировании расписания.');
             this.reset();
+        });
+        
+        // Добавляем анимацию при скролле
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.sport-card');
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if(position < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
         });
     </script>
 </body>
